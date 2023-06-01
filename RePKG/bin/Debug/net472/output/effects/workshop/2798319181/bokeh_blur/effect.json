@@ -1,0 +1,114 @@
+{
+	"dependencies" : 
+	[
+		"materials/workshop/2798319181/effects/downsample.json",
+		"materials/workshop/2798319181/effects/coc.json",
+		"materials/workshop/2798319181/effects/bokeh_blur.json",
+		"materials/workshop/2798319181/effects/gaussian_x.json",
+		"materials/workshop/2798319181/effects/gaussian_y.json",
+		"shaders/workshop/2798319181/effects/downsample.frag",
+		"shaders/workshop/2798319181/effects/downsample.vert",
+		"shaders/workshop/2798319181/effects/coc.frag",
+		"shaders/workshop/2798319181/effects/coc.vert",
+		"shaders/workshop/2798319181/effects/bokeh_blur.frag",
+		"shaders/workshop/2798319181/effects/bokeh_blur.vert",
+		"shaders/workshop/2798319181/effects/gaussian.frag",
+		"shaders/workshop/2798319181/effects/gaussian.vert"
+	],
+	"editable" : false,
+	"fbos" : 
+	[
+		{
+			"format" : "rgba_backbuffer",
+			"name" : "_rt_downscaled1",
+			"scale" : 4
+		},
+		{
+			"format" : "rgba_backbuffer",
+			"name" : "_rt_downscaled2",
+			"scale" : 4
+		},
+		{
+			"format" : "rgba_backbuffer",
+			"name" : "_rt_coc",
+			"scale" : 4
+		}
+	],
+	"group" : "localeffects",
+	"name" : "Bokeh blur",
+	"passes" : 
+	[
+		{
+			"bind" : 
+			[
+				{
+					"index" : 0,
+					"name" : "previous"
+				}
+			],
+			"material" : "materials/workshop/2798319181/effects/downsample.json",
+			"target" : "_rt_downscaled1"
+		},
+		{
+			"bind" : 
+			[
+				{
+					"index" : 0,
+					"name" : "previous"
+				}
+			],
+			"material" : "materials/workshop/2798319181/effects/coc.json",
+			"target" : "_rt_coc"
+		},
+		{
+			"bind" : 
+			[
+				{
+					"index" : 0,
+					"name" : "_rt_downscaled1"
+				},
+				{
+					"index" : 1,
+					"name" : "_rt_coc"
+				}
+			],
+			"material" : "materials/workshop/2798319181/effects/bokeh_blur.json",
+			"target" : "_rt_downscaled2"
+		},
+		{
+			"bind" : 
+			[
+				{
+					"index" : 0,
+					"name" : "_rt_downscaled2"
+				},
+				{
+					"index" : 2,
+					"name" : "_rt_coc"
+				}
+			],
+			"material" : "materials/workshop/2798319181/effects/gaussian_x.json",
+			"target" : "_rt_downscaled1"
+		},
+		{
+			"bind" : 
+			[
+				{
+					"index" : 0,
+					"name" : "_rt_downscaled1"
+				},
+				{
+					"index" : 1,
+					"name" : "previous"
+				},
+				{
+					"index" : 2,
+					"name" : "_rt_coc"
+				}
+			],
+			"material" : "materials/workshop/2798319181/effects/gaussian_y.json"
+		}
+	],
+	"replacementkey" : "bokeh_blur",
+	"version" : 1
+}

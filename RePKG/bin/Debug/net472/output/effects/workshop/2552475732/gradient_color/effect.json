@@ -1,0 +1,19 @@
+{
+	"dependencies" : 
+	[
+		"materials/workshop/2552475732/effects/gradient_color.json",
+		"shaders/workshop/2552475732/effects/gradient_color.frag",
+		"shaders/workshop/2552475732/effects/gradient_color.vert"
+	],
+	"editable" : false,
+	"group" : "localeffects",
+	"name" : "Gradient Color",
+	"passes" : 
+	[
+		{
+			"material" : "materials/workshop/2552475732/effects/gradient_color.json"
+		}
+	],
+	"replacementkey" : "gradient_color",
+	"version" : 1
+}

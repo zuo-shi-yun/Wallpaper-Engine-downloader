@@ -2,7 +2,6 @@
 .vs
 .idea
 obj
-bin
 Publish
 RePKG.Tests/Output/*
 RePKG.Tests/TestTextures/*
